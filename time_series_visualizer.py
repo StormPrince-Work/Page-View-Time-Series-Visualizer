@@ -13,11 +13,6 @@ df.set_index('date', inplace=True)
 df.index = pd.to_datetime(df.index)
 df = df[(df['value'] >= df['value'].quantile(0.025)) &  # Removes data if page views are in bottom 2.5%
         (df['value'] <= df['value'].quantile(0.975))]   # Removes data if page views are in top 2.5%
-print(df.head(5))
-print(f"Columns: {df.columns.tolist()}")
-print(f"Shape: {df.shape}")
-print(f"Count result: {df.count(numeric_only=True)}")
-print(f"Count type: {type(df.count(numeric_only=True))}")
 
 def draw_line_plot():
     # Draw line plot
